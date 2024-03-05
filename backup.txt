@@ -1,0 +1,85 @@
+import { useState,useEffect } from 'react';
+import './App.css'
+
+import axios from 'axios';
+
+function App() {
+
+  const [tasks, setTasks] = useState([]);
+
+  const [refresh, toogle] = useState(false);
+
+  const [nameImput, setNameInput] = useState('');
+  const [descriptionInput, setDescriptionInput] = useState('');
+
+  useEffect(() => {
+    getTasks();
+  },[refresh]);
+
+  const getInfoName = (e) => {
+      setNameInput(e.target.value);
+  };
+  const getInfoDescription = (e) => {
+      setDescriptionInput(e.target.value);
+  };
+
+  const getTasks = async () => {
+    const response = await fetch('http://localhost:5001/tasks')
+    const data = await response.json()
+    console.log('Aqui esta la data', data)
+    setTasks(data)
+  };
+
+  const deleteTask = async (name) => {
+    console.log(name);
+    await axios.delete(`http://localhost:5001/deleteTask/${name}`);
+    console.log(tasks);
+    toogle(!refresh);
+  };
+
+  const addTask = async (e) => {
+      e.preventDefault();
+      const newCountry = {
+          name: nameImput,  //-> Es lo mismo que name: name
+          description: descriptionInput 
+      }
+      await axios.post('http://localhost:5001/addTask', newCountry);
+      toogle(!refresh);
+  };
+
+  return (
+    <>
+      <div className='panel'>
+        <div>
+            <label htmlFor="">Name: </label>
+            <input type="text" placeholder='Write here...' value={nameImput} onChange={getInfoName}/>
+        </div>
+        <div>
+            <label htmlFor="">Description: </label>
+            <input type="text" placeholder='Write here...' value={descriptionInput} onChange={getInfoDescription}/>
+        </div>
+        <div>
+            <button onClick={addTask}>Add Task</button>
+        </div>
+      </div>
+      <div className='panelTask'>
+            <button onClick={getTasks}>Update</button>
+            <ul>
+                {tasks.map(task => (
+                    <li key={task.id} className='taskContainer'>
+                        <div>
+                            <p>{task.name}</p>
+                            <p>{task.description}</p>
+                        </div>
+                        <div>
+                            <button onClick={() => {deleteTask(task.name)}}>Delete</button>
+                        </div>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </>
+  )
+}
+
+export default App

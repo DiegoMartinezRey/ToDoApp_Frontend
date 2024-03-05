@@ -1,0 +1,76 @@
+.panel {
+  background-color: rgba(82, 82, 82, 0.516);
+  height: auto;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  padding: 10px 30px;
+}
+
+.addTaskComponents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flexInput {
+  display: flex;
+  gap: 10px;
+}
+
+.addTaskButton {
+  height: 50px;
+  width: 120px;
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #000000;
+}
+.addTaskButton:hover {
+  background-color: rgba(255, 255, 255, 0.47);
+}
+.addTaskButton:active {
+  background-color: #ffffff;
+  box-shadow: 0 1px #000000;
+  transform: translateY(4px);
+}
+
+.orderInput {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.nameInput {
+  width: 150px;
+  word-wrap: break-word; /* Allows long words to be broken and wrap onto the next line */
+  overflow-wrap: break-word; /* Handles word breaking in non-legacy browsers */
+  height: auto;
+}
+.descriptionInput {
+  width: 400px;
+}
+
+.alertSuccessfully {
+  color: green;
+}
+.alertError {
+  color: red;
+}

@@ -1,0 +1,106 @@
+.panelTask {
+  background-color: rgba(82, 82, 82, 0.516);
+  height: auto;
+  width: 800px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.flexTasks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+
+  width: 680px;
+  max-width: 580%; /* Ensures the div does not exceed the parent's width */
+  word-wrap: break-word; /* Allows long words to be broken and wrap onto the next line */
+  overflow-wrap: break-word; /* Handles word breaking in non-legacy browsers */
+  height: auto;
+  /* border: 1px solid #000;  */
+}
+.taskTitle {
+  font-size: 16pt;
+  font-weight: bold;
+}
+.taskDescription {
+  font-size: 12pt;
+}
+
+.taskContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.452);
+  border: 3px solid black;
+  border-radius: 15px;
+  padding: 20px;
+  /* margin: 10px 0; */
+}
+
+.flexButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttonStyle {
+  height: 30px;
+  width: auto;
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px #999;
+}
+.buttonStyle:active {
+  background-color: #3e8e41;
+  box-shadow: 0 1px #666;
+  transform: translateY(4px);
+}
+
+.buttonCheck {
+  background-color: rgba(0, 137, 0, 0.992);
+}
+.buttonCheck:hover {
+  background-color: rgba(0, 137, 0, 0.417);
+}
+.buttonUpdate {
+  background-color: rgba(192, 141, 0, 0.992);
+}
+.buttonUpdate:hover {
+  background-color: rgba(179, 131, 0, 0.463);
+}
+.buttonDelete {
+  background-color: rgb(175, 0, 0);
+}
+.buttonDelete:hover {
+  background-color: rgba(127, 0, 0, 0.486);
+}
+
+.isCheck {
+  border: 3px solid green;
+}
+
+.isNotCheck {
+  border: 3px solid #242424;
+}
+
+.isCheckButton {
+  display: none;
+}
